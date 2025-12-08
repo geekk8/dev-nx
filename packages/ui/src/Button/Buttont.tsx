@@ -1,5 +1,5 @@
 import * as React from "react";
-import * as styles from "./Button.css";
+import * as styles from "../Button/Button.css";
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -30,9 +30,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       .filter(Boolean)
       .join(" ");
 
-    return (
-      <button ref={ref} className={combinedClassName} {...props} />
-    );
+    return <button ref={ref} className={combinedClassName} {...props} />;
   }
 );
 
