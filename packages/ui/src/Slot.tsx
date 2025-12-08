@@ -1,7 +1,7 @@
 import React from "react";
 
 interface SlotProps extends React.HTMLAttributes<HTMLElement> {
-  children?: React.ReactNode;
+  children: React.ReactNode;
 }
 
 // className 병합 유틸리티
@@ -24,7 +24,9 @@ function composeEventHandlers<E>(
 }
 
 // Ref 병합 유틸리티
-function composeRefs<T>(...refs: (React.Ref<T> | undefined)[]): React.RefCallback<T> {
+function composeRefs<T>(
+  ...refs: (React.Ref<T> | undefined)[]
+): React.RefCallback<T> {
   return (node: T) => {
     refs.forEach((ref) => {
       if (!ref) return;
